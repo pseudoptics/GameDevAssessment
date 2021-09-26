@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pacStudent: {fileID: 673091430}
+  animatorController: {fileID: 673091431}
 --- !u!1 &709565009
 GameObject:
   m_ObjectHideFlags: 0
