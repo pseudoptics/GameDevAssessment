@@ -466,6 +466,8 @@ GameObject:
   - component: {fileID: 673091432}
   - component: {fileID: 673091431}
   - component: {fileID: 673091434}
+  - component: {fileID: 673091436}
+  - component: {fileID: 673091435}
   m_Layer: 0
   m_Name: Pac-Student
   m_TagString: Untagged
@@ -551,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673091430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.47, y: 13.06, z: 0}
+  m_LocalPosition: {x: -12.47, y: 12.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -653,6 +655,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &673091435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673091430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f47d4a7e89a8344991027901c4eead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &673091436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673091430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5f2fb1d34cec0439d9cdd94cf1a6ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pacStudent: {fileID: 673091430}
 --- !u!1 &709565009
 GameObject:
   m_ObjectHideFlags: 0
