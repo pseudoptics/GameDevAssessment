@@ -35,13 +35,18 @@ public class UIManager : MonoBehaviour
         if (scene.buildIndex == 1)
         {
             button = GameObject.FindWithTag("ExitButton").GetComponent<Button>();
-            button.onClick.AddListener(ExitGame);
+            button.onClick.AddListener(ExitLevel);
         }
+    }
+
+    public void ExitLevel()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.LoadScene(0);
     }
 
     public void ExitGame()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.LoadScene(0);
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
