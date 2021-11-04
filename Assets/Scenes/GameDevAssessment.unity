@@ -807,8 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73fc69d51141edb4facb879a53cda46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMap: {fileID: 1916803808}
   tweener: {fileID: 610439840}
+  pacAnimation: {fileID: 610439842}
 --- !u!114 &610439840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +821,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f47d4a7e89a8344991027901c4eead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &610439842 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4323755054797857973, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
+  m_PrefabInstance: {fileID: 4323755054127918034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &661888176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,11 +2113,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!156049354 &1916803808 stripped
-Grid:
-  m_CorrespondingSourceObject: {fileID: 8080402474713581430, guid: 08f7936ad4013474990f6e7e7a616a8e, type: 3}
-  m_PrefabInstance: {fileID: 8080402474985117921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1977467569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8080402474284335792, guid: 08f7936ad4013474990f6e7e7a616a8e, type: 3}
