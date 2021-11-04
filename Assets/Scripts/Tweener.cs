@@ -32,4 +32,12 @@ public class Tweener : MonoBehaviour
         if (currentTween == null)
             currentTween = new Tween(pacStudent, startPos, endPos, Time.time, duration);
     }
+
+    public bool TweenExists()
+    {
+        if (currentTween == null)
+            return false;
+
+        return true;
+    }
 }
