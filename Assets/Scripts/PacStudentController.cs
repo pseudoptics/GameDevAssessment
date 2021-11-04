@@ -5,7 +5,8 @@ using UnityEngine;
 public class PacStudentController : MonoBehaviour
 {
     private string lastInput;
-    public Grid levelMap;
+    private string currentInput;
+    private Vector3 direction;
     public Tweener tweener;
 
     // Start is called before the first frame update
@@ -17,36 +18,62 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("w")) {
-            if (!Physics2D.Raycast(transform.position, new Vector2(0, 1), 1f)) {
-                tweener.CreateTween(transform, transform.position, (transform.position + new Vector3(0, 1, 0)), 0.3f);
-            }
-            else
-            {
-                Debug.Log(Physics2D.Raycast(transform.position, new Vector2(0, 1), 1f));
-            }
+        if (Input.GetKeyDown("w"))
+        {
             lastInput = "w";
         }
 
-        if (Input.GetKeyDown("a")) {
-            if (!Physics2D.Raycast(transform.position, new Vector2(-1, 0), 1f)) {
-                tweener.CreateTween(transform, transform.position, (transform.position - new Vector3(1, 0, 0)), 0.3f);
-            }
+        if (Input.GetKeyDown("a"))
+        {
             lastInput = "a";
         }
 
-        if (Input.GetKeyDown("s")) {
-            if (!Physics2D.Raycast(transform.position, new Vector2(0, -1), 1f)) {
-                tweener.CreateTween(transform, transform.position, (transform.position - new Vector3(0, 1, 0)), 0.3f);
-            }
+        if (Input.GetKeyDown("s"))
+        {
             lastInput = "s";
         }
 
-        if (Input.GetKeyDown("d")) {
-            if (!Physics2D.Raycast(transform.position, new Vector2(1, 0), 1f)) {
-                tweener.CreateTween(transform, transform.position, (transform.position + new Vector3(1, 0, 0)), 0.3f);
-            }
+        if (Input.GetKeyDown("d"))
+        {
             lastInput = "d";
         }
+
+        if (!tweener.TweenExists() && lastInput != null)
+        {
+            direction = GetDirection(lastInput);
+
+            if (!Physics2D.Raycast(transform.position, direction, 1f)) {
+                tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
+                currentInput = lastInput;
+            }
+            else {
+                direction = GetDirection(currentInput);
+                if (!Physics2D.Raycast(transform.position, direction, 1f)) {
+                    tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
+                }
+            }
+        }
+    }
+
+    private Vector3 GetDirection(string input)
+    {
+        if (input.Equals("w"))
+        {
+            return new Vector3(0, 1, 0);
+        }
+        else if (input.Equals("a"))
+        {
+            return new Vector3(-1, 0, 0);
+        }
+        else if (input.Equals("s"))
+        {
+            return new Vector3(0, -1, 0);
+        }
+        else if (input.Equals("d"))
+        {
+            return new Vector3(1, 0, 0);
+        }
+
+        return new Vector3(0, 0, 0);
     }
 }
