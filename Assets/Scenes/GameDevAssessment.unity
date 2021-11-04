@@ -809,6 +809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweener: {fileID: 610439840}
   pacAnimation: {fileID: 610439842}
+  pacMovement: {fileID: 610439841}
 --- !u!114 &610439840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +822,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f47d4a7e89a8344991027901c4eead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &610439841 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4323755054797857976, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
+  m_PrefabInstance: {fileID: 4323755054127918034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &610439842 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4323755054797857973, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
@@ -2488,6 +2494,10 @@ PrefabInstance:
     - target: {fileID: 4323755054797857972, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
       propertyPath: m_Name
       value: Pac-Student
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323755054797857976, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4323755054797857979, guid: b095de2b3c3a03544a1e22cc299b62b5, type: 3}
       propertyPath: m_RootOrder

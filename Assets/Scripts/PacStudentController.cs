@@ -9,6 +9,7 @@ public class PacStudentController : MonoBehaviour
     private Vector3 direction;
     public Tweener tweener;
     public Animator pacAnimation;
+    public AudioSource pacMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,9 @@ public class PacStudentController : MonoBehaviour
                 PlayAnimation(lastInput);
                 tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
                 currentInput = lastInput;
+                if (!pacMovement.isPlaying) {
+                    pacMovement.Play();
+                }
             }
             else {
                 direction = GetDirection(currentInput);
@@ -56,6 +60,7 @@ public class PacStudentController : MonoBehaviour
                 else
                 {
                     pacAnimation.speed = 0;
+                    pacMovement.Stop();
                 }
             }
         }
