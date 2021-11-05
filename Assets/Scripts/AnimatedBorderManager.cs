@@ -26,7 +26,6 @@ public class AnimatedBorderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GetRatio());
         if (ratio != GetRatio())
         {
             Destroy(border);
