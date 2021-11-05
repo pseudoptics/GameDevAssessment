@@ -23,28 +23,23 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("w"))
-        {
+        if (Input.GetKeyDown("w")) {
             lastInput = "w";
         }
 
-        if (Input.GetKeyDown("a"))
-        {
+        if (Input.GetKeyDown("a")) {
             lastInput = "a";
         }
 
-        if (Input.GetKeyDown("s"))
-        {
+        if (Input.GetKeyDown("s")) {
             lastInput = "s";
         }
 
-        if (Input.GetKeyDown("d"))
-        {
+        if (Input.GetKeyDown("d")) {
             lastInput = "d";
         }
 
-        if (!tweener.TweenExists() && lastInput != null)
-        {
+        if (!tweener.TweenExists() && lastInput != null) {
             direction = GetDirection(lastInput);
 
             if (!Physics2D.Raycast(transform.position, direction, 1f)) {
