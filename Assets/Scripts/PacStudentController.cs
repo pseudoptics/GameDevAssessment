@@ -11,6 +11,7 @@ public class PacStudentController : MonoBehaviour
     public Animator pacAnimation;
     public AudioSource movementSource;
     public AudioClip[] movementClips;
+    public ParticleSystem pacParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +48,16 @@ public class PacStudentController : MonoBehaviour
 
             if (!Physics2D.Raycast(transform.position, direction, 1f)) {
                 PlayAnimation(lastInput);
+                ParticleRotation(lastInput);
                 tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
                 currentInput = lastInput;
                 if (!movementSource.isPlaying) {
                     movementSource.Play();
+                }
+
+                if (!pacParticle.isPlaying)
+                {
+                    pacParticle.Play();
                 }
             }
             else if (currentInput != null) {
@@ -62,6 +69,7 @@ public class PacStudentController : MonoBehaviour
                 {
                     pacAnimation.speed = 0;
                     movementSource.Stop();
+                    pacParticle.Stop();
                 }
             }
         }
@@ -117,6 +125,31 @@ public class PacStudentController : MonoBehaviour
             pacAnimation.ResetTrigger("LeftTrigger");
             pacAnimation.ResetTrigger("UpTrigger");
             pacAnimation.ResetTrigger("DownTrigger");
+        }
+    }
+
+    private void ParticleRotation(string input)
+    {
+        var shape = pacParticle.shape;
+
+        if (input.Equals("w")) {
+            shape.position = new Vector3(0, -1, 0);
+            shape.rotation = new Vector3(180, 0, 0);
+        }
+
+        else if (input.Equals("a")) {
+            shape.position = new Vector3(1, 0, 0);
+            shape.rotation = new Vector3(90, 90, 0);
+        }
+
+        else if (input.Equals("s")) {
+            shape.position = new Vector3(0, 1, 0);
+            shape.rotation = new Vector3(0, 0, 0);
+        }
+
+        else if (input.Equals("d")) {
+            shape.position = new Vector3(-1, 0, 0);
+            shape.rotation = new Vector3(-90, 90, 0);
         }
     }
 }
