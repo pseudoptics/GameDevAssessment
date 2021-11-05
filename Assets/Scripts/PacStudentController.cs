@@ -56,8 +56,7 @@ public class PacStudentController : MonoBehaviour
                     movementSource.Play();
                 }
 
-                if (particleToggle)
-                {
+                if (particleToggle) {
                     pacParticle.Play();
                     particleToggle = false;
                 }
@@ -67,8 +66,7 @@ public class PacStudentController : MonoBehaviour
                 if (!Physics2D.Raycast(transform.position, direction, 1f)) {
                     tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
                 }
-                else
-                {
+                else {
                     pacAnimation.speed = 0;
                     movementSource.Stop();
                     pacParticle.Stop();
