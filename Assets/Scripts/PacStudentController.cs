@@ -12,6 +12,7 @@ public class PacStudentController : MonoBehaviour
     public AudioSource movementSource;
     public AudioClip[] movementClips;
     public ParticleSystem pacParticle;
+    bool particleToggle = true;
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +56,10 @@ public class PacStudentController : MonoBehaviour
                     movementSource.Play();
                 }
 
-                if (!pacParticle.isPlaying)
+                if (particleToggle)
                 {
                     pacParticle.Play();
+                    particleToggle = false;
                 }
             }
             else if (currentInput != null) {
@@ -70,6 +72,7 @@ public class PacStudentController : MonoBehaviour
                     pacAnimation.speed = 0;
                     movementSource.Stop();
                     pacParticle.Stop();
+                    particleToggle = true;
                 }
             }
         }
