@@ -26,8 +26,7 @@ public class AnimatedBorderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ratio != GetRatio())
-        {
+        if (ratio != GetRatio()) {
             Destroy(border);
             GenerateCanvas();
             ratio = GetRatio();
