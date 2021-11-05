@@ -9,12 +9,13 @@ public class PacStudentController : MonoBehaviour
     private Vector3 direction;
     public Tweener tweener;
     public Animator pacAnimation;
-    public AudioSource pacMovement;
+    public AudioSource movementSource;
+    public AudioClip[] movementClips;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        pacAnimation.speed = 0;
     }
 
     // Update is called once per frame
@@ -48,11 +49,11 @@ public class PacStudentController : MonoBehaviour
                 PlayAnimation(lastInput);
                 tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
                 currentInput = lastInput;
-                if (!pacMovement.isPlaying) {
-                    pacMovement.Play();
+                if (!movementSource.isPlaying) {
+                    movementSource.Play();
                 }
             }
-            else {
+            else if (currentInput != null) {
                 direction = GetDirection(currentInput);
                 if (!Physics2D.Raycast(transform.position, direction, 1f)) {
                     tweener.CreateTween(transform, transform.position, (transform.position + direction), 0.3f);
@@ -60,7 +61,7 @@ public class PacStudentController : MonoBehaviour
                 else
                 {
                     pacAnimation.speed = 0;
-                    pacMovement.Stop();
+                    movementSource.Stop();
                 }
             }
         }
